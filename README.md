@@ -44,7 +44,10 @@ I'm continuously exploring new ideas, building experiments, and turning creative
 
 ### 📫 Find Me
 
-**小煋AI** — AI 内容创作、工具探索与个人思考分享。更多社交媒体与个人网站链接将在未来补充。
+- 🎵 抖音 · [小煋AI](https://v.douyin.com/WzB-eHkf1kA/)
+- 𝕏 X · [小煋AI](https://x.com/xingh_AI)
+
+AI 内容创作、工具探索与个人思考分享。更多链接将在未来补充。
 
 ---
 
