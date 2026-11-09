@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#141114" />
-<title>LifeOS — Liquid Glass Demo V3</title>
+<meta name="theme-color" content="#100d12" />
+<title>LifeOS — Optical Liquid Glass V4</title>
 <style>
 :root{--bg:#f7f8f5;--surface:#fff;--surface2:#f3f5f1;--line:#e8ebe6;--ink:#22312b;--muted:#87928b;--green:#2e8368;--green-dark:#205b49;--green-light:#e7f4ec;--orange:#e39e5d;--shadow:0 12px 45px rgba(26,45,35,.045);--radius:18px;font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;color:var(--ink);background:var(--bg)}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #9acdb8;outline-offset:2px}a{color:inherit}svg{display:block} .icon{width:19px;height:19px;display:inline-block;flex:0 0 auto}.icon.sm{width:16px;height:16px}.icon.lg{width:22px;height:22px}
@@ -241,160 +241,138 @@ button.surface-tag:hover{background:rgba(255,255,255,.10);border-color:rgba(255,
 .feature-right .agent-card-glow{color:#ffa065;opacity:.82;text-shadow:0 0 24px rgba(255,100,44,.7),0 0 60px rgba(255,105,40,.32)}
 @media(max-width:700px){.feature-right{height:258px!important;min-height:258px!important}.feature-right .agent-number{margin-top:20px}.feature-right .agent-card-copy{margin-top:13px;max-width:70%}.feature-right .agent-card-cta{bottom:18px}.feature-right .agent-card-glow{top:100px}}
 </style>
-<style id="lifeos-liquid-glass-v3">
-/* LifeOS · Liquid Glass V3 — borderless translucent UI */
+<style id="lifeos-liquid-glass-v4">
+/* LifeOS V4 — optical Liquid Glass. Only interactive chrome is glass;
+   readable data content stays on deep graphite surfaces. No CSS borders. */
 :root{
-  --glass-face:linear-gradient(144deg,rgba(255,255,255,.135) 0%,rgba(255,255,255,.065) 33%,rgba(255,255,255,.026) 72%,rgba(255,255,255,.045) 100%);
-  --glass-face-soft:linear-gradient(147deg,rgba(255,255,255,.090),rgba(255,255,255,.034) 61%,rgba(255,255,255,.026));
-  --glass-highlight:inset 0 1px 0 rgba(255,255,255,.105), inset 0 -1px 0 rgba(255,255,255,.020), 0 16px 48px rgba(0,0,0,.15);
-  --glass-blur:blur(30px) saturate(155%);
-  --line:transparent;
-  --shadow:0 18px 55px rgba(0,0,0,.14);
+  --bg:#100d12;--ink:#fff8f5;--muted:#bcacae;--line:transparent;
+  --glass-lens: blur(22px) saturate(195%) brightness(1.13);
+  --glass-fill:linear-gradient(138deg,rgba(255,255,255,.215) 0%,rgba(255,255,255,.105) 22%,rgba(235,216,217,.055) 63%,rgba(255,255,255,.12) 100%);
+  --glass-depth:inset 0 1.2px 1px rgba(255,255,255,.38),inset 0 -1.4px 2.4px rgba(255,255,255,.12),inset 1.5px 0 1.8px rgba(255,255,255,.13),inset -1px 0 1.5px rgba(255,255,255,.12),0 12px 32px rgba(0,0,0,.23),0 2px 5px rgba(0,0,0,.12);
+  --glass-glint:radial-gradient(ellipse 65% 75% at var(--gx,23%) var(--gy,0%),rgba(255,255,255,.26),transparent 80%),linear-gradient(140deg,rgba(255,255,255,.15) 0%,transparent 26%,transparent 75%,rgba(255,255,255,.04));
 }
-html,body{background:#0c0b10}
-body{
-  background-image:radial-gradient(ellipse 46% 39% at 89% 9%,rgba(255,110,61,.17),transparent 78%),radial-gradient(ellipse 42% 32% at 9% 95%,rgba(235,70,45,.11),transparent 84%);
-}
+html,body{background:#0e0b11;color:#f9f1ef}
+body{background-image:radial-gradient(ellipse 60% 38% at 103% -4%,rgba(239,86,36,.20),transparent 84%)}
 .app{background:none}
-.main{
-  background:
-    radial-gradient(ellipse 47% 40% at 105% 4%,rgba(245,83,40,.39),transparent 79%),
-    radial-gradient(ellipse 36% 39% at 4% 92%,rgba(208,60,31,.20),transparent 83%),
-    radial-gradient(ellipse 43% 41% at 64% 49%,rgba(109,76,127,.14),transparent 83%),
-    radial-gradient(ellipse 34% 22% at 35% 6%,rgba(190,80,43,.075),transparent 80%),
-    linear-gradient(157deg,#21171c 0%,#111116 55%,#171115 100%);
-}
-/* The lighting remains behind content, while surfaces allow it to show through. */
-.sidebar{
-  border:0!important;
-  background:linear-gradient(172deg,rgba(41,32,40,.72),rgba(17,16,23,.64) 72%,rgba(61,26,25,.62));
-  -webkit-backdrop-filter:blur(42px) saturate(160%);
-  backdrop-filter:blur(42px) saturate(160%);
-  box-shadow:20px 0 55px rgba(3,2,6,.14),inset -1px 0 rgba(255,255,255,.018);
-}
-.topbar{
-  border:0!important;
-  background:linear-gradient(100deg,rgba(35,29,35,.29),rgba(63,32,30,.21));
-  -webkit-backdrop-filter:blur(38px) saturate(170%);
-  backdrop-filter:blur(38px) saturate(170%);
-  box-shadow:0 12px 30px rgba(4,2,7,.08);
-}
-/* All major components become softly translucent, not dark solid boxes. */
-.feature-card,.panel,.library-card,.note-card,.metric,.reminder-dashboard,.sidebar-note,.insight,.agent-panel,.modal{
-  border:0!important;
-  background:var(--glass-face);
-  -webkit-backdrop-filter:var(--glass-blur);
-  backdrop-filter:var(--glass-blur);
-  box-shadow:var(--glass-highlight);
-  border-radius:24px;
-}
-.feature-card{background:linear-gradient(132deg,rgba(255,255,255,.135),rgba(255,255,255,.042) 60%,rgba(49,27,35,.28));min-height:300px}
-.feature-card:before{opacity:.54; background:radial-gradient(ellipse 110% 82% at 4% 105%,rgba(255,128,80,.13),transparent 83%)}
-.feature-center{background:linear-gradient(135deg,rgba(255,255,255,.082),rgba(255,255,255,.028) 78%,rgba(91,55,67,.09))}
-.feature-right{
-  background:radial-gradient(ellipse 103% 89% at 107% 110%,rgba(255,112,52,.24),transparent 87%),linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.037) 72%,rgba(97,42,36,.21));
-}
-.feature-right:before{opacity:.65}
-.panel,.note-card,.library-card{background:var(--glass-face-soft)}
-.trend-panel,.chart-panel{background:linear-gradient(138deg,rgba(255,255,255,.092),rgba(255,255,255,.027) 82%)}
-.metric{background:linear-gradient(146deg,rgba(255,255,255,.095),rgba(255,255,255,.026))}
-.reminder-dashboard,.insight{background:linear-gradient(112deg,rgba(253,111,63,.18),rgba(255,255,255,.052) 62%,rgba(255,255,255,.035))}
-.sidebar-note{background:linear-gradient(144deg,rgba(255,142,93,.15),rgba(255,255,255,.045))}
-.feature-card,.panel,.metric,.note-card,.library-card,.sidebar-note,.reminder-dashboard{
-  transition:background .28s ease,box-shadow .28s ease,transform .28s cubic-bezier(.2,.75,.25,1);
-}
-.note-card:hover,.library-card:hover{
-  border:0!important;
-  background:linear-gradient(140deg,rgba(255,255,255,.145),rgba(255,255,255,.045));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.11),0 22px 50px rgba(0,0,0,.23);
-  transform:translateY(-2px);
-}
-/* Frameless controls: glass fill and depth instead of strokes. */
-.nav-btn,.nav-btn.active,.nav-pill,.chip,.demo-tag,.small-round,.range-pill,.pill-action,.agent-live,.agent-start,.quickbox,.quick-orb,.send-btn,.tag,.check-btn,.progress-item,.track,.btn,.btn.secondary,.btn.ghost,.btn.danger,.search,.tabs,.tab,.tab.active,.lib-icon,.lib-actions button,.icon-btn,.avatar,.receipt,.receipt-row,.receipt-open,.starter,.chat-bubble,.chat-input-wrap,.agent-close,.field input,.field textarea,.field select,.notice,.record-row,.mobile-header,.fab,#toast-root>div{
-  border:0!important;
-}
-.nav-btn.active{
-  background:linear-gradient(108deg,rgba(255,255,255,.155),rgba(255,255,255,.045));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 6px 18px rgba(0,0,0,.08);
-}
-.nav-btn:hover{background:rgba(255,255,255,.08)}
-.nav-pill,.chip,.agent-live,.tag,.demo-tag,.range-pill,.pill-action,.small-round,.icon-btn,.lib-actions button,.btn.secondary,.starter{
-  background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.045));
-  -webkit-backdrop-filter:blur(20px) saturate(160%);
-  backdrop-filter:blur(20px) saturate(160%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 5px 14px rgba(0,0,0,.08);
-}
-.nav-pill,.agent-live,.chip{color:#ffb28b}
-.tag.green{background:rgba(82,216,162,.10)}
-.tag.warn{background:rgba(246,152,91,.11)}
-.small-round,.icon-btn{color:#ffc6ad}
-.quickbox{
-  background:linear-gradient(98deg,rgba(255,255,255,.115),rgba(255,255,255,.038) 72%,rgba(251,113,68,.085));
-  -webkit-backdrop-filter:blur(34px) saturate(165%);
-  backdrop-filter:blur(34px) saturate(165%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.095),0 15px 38px rgba(0,0,0,.15);
-  border-radius:20px;
-}
-.quick-orb,.lib-icon{background:rgba(251,134,86,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
-.progress-item,.record-row{
-  background:linear-gradient(115deg,rgba(255,255,255,.09),rgba(255,255,255,.029));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.075);
-}
-.check-btn{background:rgba(255,255,255,.11);box-shadow:inset 0 1px 0 rgba(255,255,255,.15)}
-.check-btn.checked{background:linear-gradient(140deg,#ff986e,#ef603b);box-shadow:0 3px 12px rgba(245,90,50,.27)}
-.tabs,.search{background:rgba(255,255,255,.065);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px)}
-.tab.active{background:rgba(255,255,255,.15);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 2px 12px rgba(0,0,0,.11)}
-.btn,.agent-start,.send-btn,.chat-send,.fab{
-  background:linear-gradient(125deg,rgba(255,168,125,.96),rgba(255,106,66,.95) 43%,rgba(226,73,49,.97));
-  box-shadow:inset 0 1px 0 rgba(255,231,208,.32),0 9px 26px rgba(230,76,40,.24);
-}
-.btn.ghost{background:rgba(255,255,255,.035);box-shadow:none}
-.btn.secondary{color:#f5dfda}
-.btn:hover,.agent-start:hover,.send-btn:hover{filter:brightness(1.11)}
-/* Avoid hard dividers between content groups. */
-.task-row,.reflection-item,.lib-footer,.receipt-row,.timeline-item,.modal-head,.agent-head,.chat-composer{
-  border:0!important;
-}
-.task-row + .task-row,.reflection-item + .reflection-item,.receipt-row + .receipt-row{
-  box-shadow:0 -9px 0 -8.7px rgba(255,255,255,.065);
-}
-/* Private assistant and forms use the same glass material. */
-.agent-layer,.modal-layer{
-  background:rgba(7,6,10,.58);
-  -webkit-backdrop-filter:blur(15px) saturate(130%);
-  backdrop-filter:blur(15px) saturate(130%);
-}
-.agent-panel{
-  background:radial-gradient(ellipse 80% 37% at 96% 2%,rgba(221,91,54,.17),transparent),linear-gradient(145deg,rgba(42,34,43,.85),rgba(24,22,31,.76));
-  -webkit-backdrop-filter:blur(48px) saturate(165%);backdrop-filter:blur(48px) saturate(165%);
-  box-shadow:-30px 0 90px rgba(0,0,0,.40);
-  border-radius:0;
-}
-.agent-head,.chat-composer{background:rgba(255,255,255,.028);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px)}
-.chat-bubble{background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.062));box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
-.chat-row.me .chat-bubble{background:linear-gradient(132deg,rgba(248,135,85,.35),rgba(187,75,60,.23));box-shadow:inset 0 1px 0 rgba(255,255,255,.11)}
-.chat-input-wrap{background:rgba(255,255,255,.095);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
-.receipt{background:rgba(255,255,255,.045);border-radius:15px}
-.receipt-open{background:rgba(255,143,96,.13);color:#ffbf9d}
-.modal{
-  background:radial-gradient(ellipse 90% 44% at 100% 0%,rgba(241,107,66,.14),transparent),linear-gradient(132deg,rgba(52,39,48,.93),rgba(29,27,36,.90));
-  -webkit-backdrop-filter:blur(48px) saturate(160%);backdrop-filter:blur(48px) saturate(160%);
-  box-shadow:0 30px 105px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.10);
-}
-.field input,.field textarea,.field select{background:rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.045)}
-.field input:focus,.field textarea:focus,.field select:focus{background:rgba(255,255,255,.12);outline:2px solid rgba(255,153,107,.60);outline-offset:2px}
-.mobile-header{background:rgba(34,27,35,.50);-webkit-backdrop-filter:blur(34px) saturate(170%);backdrop-filter:blur(34px) saturate(170%);box-shadow:0 -15px 42px rgba(0,0,0,.18)}
-#toast-root>div{background:rgba(54,39,48,.82)!important;-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);box-shadow:0 12px 48px rgba(0,0,0,.3)}
-@media(max-width:700px){
-  .main{background:radial-gradient(ellipse 94% 35% at 112% 0%,rgba(240,88,48,.32),transparent),radial-gradient(ellipse 91% 34% at -20% 87%,rgba(221,86,56,.13),transparent),linear-gradient(155deg,#1f171e,#111116 70%,#171116)}
-  .topbar{background:rgba(38,31,38,.34)}
-  .feature-card,.panel,.note-card,.library-card{border-radius:22px}
-}
-@media(prefers-reduced-transparency:reduce){
-  .feature-card,.panel,.library-card,.note-card,.metric,.reminder-dashboard,.sidebar-note,.insight,.agent-panel,.modal{background:rgba(42,35,45,.96);-webkit-backdrop-filter:none;backdrop-filter:none}
-}
-@media(prefers-reduced-motion:reduce){.feature-card,.panel,.metric,.note-card,.library-card,.sidebar-note,.reminder-dashboard{transition:none}}
+.main{position:relative;isolation:isolate;background:
+  radial-gradient(ellipse 55% 45% at 106% 3%,rgba(236,79,30,.46),transparent 83%),
+  radial-gradient(ellipse 29% 27% at 96% 65%,rgba(216,69,37,.23),transparent 86%),
+  radial-gradient(ellipse 43% 30% at -16% 100%,rgba(200,57,31,.18),transparent 84%),
+  radial-gradient(ellipse 38% 28% at 38% -8%,rgba(204,100,66,.09),transparent 84%),
+  linear-gradient(135deg,#1d151b,#101015 61%,#191218 100%)}
+.main::before{content:"";position:absolute;inset:72px 0 auto;height:620px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 46% 40% at 104% 8%,rgba(255,123,61,.18),transparent 80%)}
+.main::after{content:"";position:absolute;right:0;top:450px;width:46%;height:620px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at right,rgba(245,92,43,.08),transparent 72%)}
+.sidebar{border:0!important;background:radial-gradient(ellipse 100% 27% at 24% 110%,rgba(186,55,31,.37),transparent 88%),linear-gradient(177deg,#141117 2%,#100f15 74%,#21131a);box-shadow:12px 0 44px rgba(0,0,0,.16)}
+.topbar{border:0!important;background:linear-gradient(100deg,rgba(19,16,22,.56),rgba(57,30,33,.20));-webkit-backdrop-filter:blur(22px) saturate(145%);backdrop-filter:blur(22px) saturate(145%);box-shadow:0 10px 36px rgba(3,2,8,.07)}
 
+/* Dark content: solid enough to hold text and fine graphics, unlike V3 frosted plastic. */
+.feature-card,.panel,.metric,.library-card,.note-card,.sidebar-note,.insight,.reminder-dashboard{border:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;position:relative;background:linear-gradient(142deg,rgba(40,34,42,.95),rgba(25,23,31,.96) 80%);box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 19px 46px rgba(0,0,0,.13);border-radius:24px}
+.feature-card{height:267px;min-height:267px;padding:20px 20px 16px}
+.feature-left{background:radial-gradient(ellipse at 0% 100%,rgba(225,103,57,.095),transparent 80%),linear-gradient(145deg,#32272b,#1c1b23 80%)}
+.feature-center{background:linear-gradient(148deg,#25212a,#17191f 83%)}
+.feature-right{background:radial-gradient(ellipse 102% 92% at 110% 110%,rgba(241,100,47,.25),transparent 83%),linear-gradient(146deg,#392930,#241c23 83%)}
+.feature-card:before{opacity:.48}
+.panel,.library-card,.note-card{background:linear-gradient(145deg,rgba(41,35,42,.96),rgba(25,23,30,.95))}
+.trend-panel{background:radial-gradient(ellipse at 92% 103%,rgba(236,84,42,.10),transparent 70%),linear-gradient(151deg,#2b252c,#1c1b23 86%)}
+.sidebar-note{background:linear-gradient(146deg,rgba(104,45,42,.61),rgba(67,31,34,.75))}
+.insight,.reminder-dashboard{background:linear-gradient(106deg,rgba(120,48,36,.69),rgba(36,28,35,.96) 62%)}
+.progress-item,.record-row{background:rgba(255,255,255,.045);box-shadow:none;border:0!important}
+.note-card:hover,.library-card:hover{transform:translateY(-2px);background:linear-gradient(142deg,rgba(49,40,46,.98),rgba(29,27,34,.98));box-shadow:0 20px 50px rgba(0,0,0,.20)}
+.feature-card,.panel,.note-card,.library-card{transition:background .23s ease,transform .3s ease,box-shadow .25s ease}
+
+/* Liquid glass is reserved for controls, toolbars and temporarily elevated surfaces. */
+.nav-btn.active,.top-search,.icon-btn,.surface-tag,.small-round,.range-pill,.pill-action,.quickbox,.chat-input-wrap,.starter,.tab.active,.btn.secondary,.agent-mark,.chat-mic,.agent-close,.receipt-open,.lib-actions button,.mobile-header,.fab{
+  border:0!important;
+  position:relative;
+  isolation:isolate;
+  background:var(--glass-fill);
+  -webkit-backdrop-filter:var(--glass-lens);
+  backdrop-filter:var(--glass-lens);
+  box-shadow:var(--glass-depth);
+}
+.nav-btn.active::before,.top-search::before,.icon-btn::before,.surface-tag::before,.small-round::before,.range-pill::before,.pill-action::before,.quickbox::before,.chat-input-wrap::before,.starter::before,.tab.active::before,.btn.secondary::before,.agent-mark::before,.chat-mic::before,.agent-close::before,.receipt-open::before,.mobile-header::before,.fab::before{
+  content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;
+  background:var(--glass-glint);
+  opacity:.80;
+  transition:opacity .32s ease,background .26s ease;
+}
+/* A narrow asymmetric specular reflection reads as a lens rather than a stroked box. */
+.nav-btn.active::after,.top-search::after,.icon-btn::after,.surface-tag::after,.quickbox::after,.chat-input-wrap::after,.tab.active::after,.btn.secondary::after,.mobile-header::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(122deg,rgba(255,255,255,.42),transparent 28%,transparent 74%,rgba(255,255,255,.15));
+  padding:1.25px;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.61;
+}
+.nav-btn.active,.tab.active{color:#fff9f5}
+.nav-btn.active{background:linear-gradient(110deg,rgba(255,255,255,.19),rgba(255,255,255,.09) 42%,rgba(255,255,255,.05));border-radius:20px}
+.nav-btn:hover{background:rgba(255,255,255,.09);color:#fff9f4}
+.nav-pill,.chip,.agent-live,.tag,.demo-tag{border:0!important;background:rgba(255,255,255,.065);box-shadow:none;color:#ffc3a2}
+.tag.green{color:#75e5b6;background:rgba(84,227,164,.12)}
+.tag.warn{color:#ffbd8b;background:rgba(255,163,89,.12)}
+.top-search{border-radius:999px;background:linear-gradient(110deg,rgba(255,255,255,.15),rgba(255,255,255,.058) 55%,rgba(244,152,118,.10));}
+.top-search input{color:#fff8f3}
+.top-search kbd{border:0!important;background:rgba(255,255,255,.09);border-radius:7px}
+.icon-btn,.small-round,.chat-mic,.agent-close{border-radius:50%;color:#fff4ee;display:grid;place-items:center}
+.icon-btn{width:43px;height:43px}
+.avatar{border:0!important;background:linear-gradient(140deg,#ffd9ad,#f3a66d);color:#362127;box-shadow:0 0 0 3px rgba(16,14,19,.48),0 7px 19px rgba(0,0,0,.16)}
+.surface-tag,.range-pill,.pill-action{border-radius:999px;min-height:39px}
+.btn.secondary,.starter{color:#fff6f2!important;border-radius:999px}
+.btn.ghost{background:transparent!important;border:0!important;box-shadow:none}
+.btn:not(.secondary):not(.ghost),.agent-card-cta,.send-btn,.chat-send{border:0!important;background:linear-gradient(113deg,#ffb27b,#fb7946 39%,#f2603f);box-shadow:inset 0 1.25px 0 rgba(255,234,215,.46),inset 0 -2px rgba(159,42,29,.18),0 10px 22px rgba(240,74,37,.25);color:#2b1716;font-weight:760}
+.agent-card-cta{border-radius:16px;color:#321918}
+.btn:hover,.agent-card-cta:hover,.send-btn:hover,.chat-send:hover{filter:brightness(1.09)}
+.quickbox{border-radius:28px;background:linear-gradient(120deg,rgba(255,255,255,.22),rgba(255,255,255,.10) 32%,rgba(255,188,158,.095));padding:12px 14px 12px 17px;box-shadow:inset 0 1px 1px rgba(255,255,255,.40),inset 0 -1px 2px rgba(255,255,255,.13),0 15px 43px rgba(0,0,0,.25),0 0 25px rgba(254,134,91,.06)}
+.quick-orb,.lib-icon{border:0!important;background:rgba(255,145,108,.14);box-shadow:inset 0 1px rgba(255,255,255,.09)}
+.quickbox input::placeholder{color:#c3b8ba}
+.search,.tabs,.tab,.lib-actions button,.receipt,.field input,.field textarea,.field select,.demo-tag{border:0!important}
+.search,.tabs{background:rgba(255,255,255,.06);border-radius:18px}
+.tab.active{border-radius:15px}
+.task-row,.reflection-item,.timeline-item,.lib-footer,.receipt-row,.record-row{border:0!important}
+.task-row + .task-row,.reflection-item + .reflection-item{box-shadow:0 -9px 0 -8.6px rgba(255,255,255,.07)}
+.check-btn{border:0!important;background:rgba(255,255,255,.15);box-shadow:inset 0 1px rgba(255,255,255,.13)}
+.check-btn.checked{background:linear-gradient(133deg,#ffa57e,#f36b47);box-shadow:0 3px 13px rgba(244,93,50,.25)}
+
+/* The assistant is the elevated glass object: the content behind it is genuinely visible. */
+.agent-layer,.modal-layer{background:rgba(7,6,11,.43);-webkit-backdrop-filter:blur(7px) saturate(110%);backdrop-filter:blur(7px) saturate(110%)}
+.agent-panel{position:relative;width:min(510px,calc(100vw - 30px));height:calc(100vh - 28px);margin:14px 14px 14px auto;overflow:hidden;border:0!important;border-radius:32px;
+  background:radial-gradient(ellipse 110% 60% at 105% 0%,rgba(255,171,134,.18),transparent 72%),linear-gradient(145deg,rgba(66,52,65,.73),rgba(30,27,39,.73) 70%,rgba(55,32,41,.82));
+  -webkit-backdrop-filter:blur(45px) saturate(190%) brightness(1.12);backdrop-filter:blur(45px) saturate(190%) brightness(1.12);
+  box-shadow:inset 0 1.5px 1px rgba(255,255,255,.27),inset 1px 0 rgba(255,255,255,.095),inset -1px 0 rgba(255,255,255,.12),0 25px 95px rgba(0,0,0,.56),0 0 85px rgba(248,127,84,.10)}
+.agent-panel::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:6;background:linear-gradient(145deg,rgba(255,255,255,.5),transparent 17%,transparent 78%,rgba(255,255,255,.14));padding:1.5px;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.65}
+.agent-panel::after{content:"";position:absolute;inset:0 0 auto 0;height:116px;pointer-events:none;z-index:1;background:radial-gradient(ellipse 70% 70% at 40% 0%,rgba(255,255,255,.13),transparent 77%)}
+.agent-head,.chat-composer{position:relative;z-index:2;border:0!important;background:rgba(255,255,255,.035);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.agent-head{padding:24px 24px 19px}.agent-mark{border-radius:15px;color:#ffd8c3}
+.chat-messages{position:relative;z-index:2}.chat-bubble{border:0!important;background:rgba(255,255,255,.10);box-shadow:inset 0 1px rgba(255,255,255,.085);border-radius:18px}
+.chat-row.me .chat-bubble{background:linear-gradient(120deg,rgba(242,132,94,.29),rgba(194,90,85,.19));box-shadow:inset 0 1px rgba(255,255,255,.11)}
+.chat-input-wrap{border-radius:24px;background:linear-gradient(110deg,rgba(255,255,255,.22),rgba(255,255,255,.07));box-shadow:inset 0 1px 1px rgba(255,255,255,.35),0 8px 26px rgba(0,0,0,.14)}
+.chat-starters{position:relative;z-index:2}.starter{border-radius:999px;white-space:nowrap}
+.receipt{border:0!important;background:rgba(255,255,255,.07);border-radius:18px}.receipt-open{border-radius:999px;padding:7px 12px;color:#ffe1cf}
+.modal{position:relative;border:0!important;border-radius:30px;background:radial-gradient(ellipse at 100% 0%,rgba(239,124,86,.22),transparent 60%),linear-gradient(130deg,rgba(59,48,59,.90),rgba(32,30,40,.92));-webkit-backdrop-filter:blur(46px) saturate(150%);backdrop-filter:blur(46px) saturate(150%);box-shadow:inset 0 1px rgba(255,255,255,.23),0 30px 90px rgba(0,0,0,.5)}
+.field input,.field textarea,.field select{background:rgba(255,255,255,.085);border-radius:14px;box-shadow:inset 0 1px rgba(255,255,255,.065);color:#fff6f1}
+.field input:focus,.field textarea:focus,.field select:focus{outline:2px solid rgba(255,174,126,.60);outline-offset:2px;background:rgba(255,255,255,.13)}
+.field select option{background:#2c232b;color:#fff}
+.notice{border:0!important;background:rgba(44,33,42,.86);-webkit-backdrop-filter:blur(25px);backdrop-filter:blur(25px);box-shadow:0 14px 50px rgba(0,0,0,.3)}
+
+/* Glass reacts to a pointer moving across its surface, not an opaque hover overlay. */
+@media(hover:hover) and (pointer:fine){
+  .nav-btn.active,.top-search,.icon-btn,.surface-tag,.small-round,.quickbox,.chat-input-wrap,.starter,.tab.active,.btn.secondary,.chat-mic,.agent-close{transition:box-shadow .27s ease,transform .3s cubic-bezier(.22,.9,.25,1),background .35s ease}
+  .icon-btn:hover,.small-round:hover,.surface-tag:hover,.starter:hover,.btn.secondary:hover,.chat-mic:hover,.agent-close:hover{transform:translateY(-1px);box-shadow:inset 0 1px 1px rgba(255,255,255,.53),inset 0 -1px 2px rgba(255,255,255,.16),0 15px 33px rgba(0,0,0,.29)}
+  .nav-btn.active:hover,.top-search:focus-within,.quickbox:focus-within,.chat-input-wrap:focus-within{box-shadow:inset 0 1px 1px rgba(255,255,255,.52),inset 0 -1px 2px rgba(255,255,255,.18),0 15px 40px rgba(0,0,0,.26),0 0 24px rgba(252,165,122,.11)}
+}
+.mobile-header{border-radius:23px 23px 0 0;background:linear-gradient(135deg,rgba(52,43,56,.74),rgba(28,27,38,.75));box-shadow:inset 0 1.5px 1px rgba(255,255,255,.29),0 -12px 35px rgba(0,0,0,.24)}
+.fab{border-radius:50%;background:linear-gradient(135deg,rgba(255,196,148,.80),rgba(242,99,58,.80));color:#2c1c1d}
+@media(max-width:700px){
+  .main{background:radial-gradient(ellipse 90% 28% at 108% 3%,rgba(236,84,40,.39),transparent),radial-gradient(ellipse 87% 32% at -19% 95%,rgba(215,74,36,.16),transparent),linear-gradient(155deg,#1e161c,#101015 75%,#171117)}
+  .topbar{background:rgba(38,31,39,.4)}.feature-card,.panel,.library-card,.note-card{border-radius:22px}
+  .feature-card{height:235px;min-height:235px}.feature-center{height:270px;min-height:270px}.feature-right{height:225px;min-height:225px}
+  .agent-panel{width:calc(100vw - 12px);height:calc(100dvh - 12px);margin:6px;border-radius:26px}
+  .agent-head{padding:20px 18px 15px}
+  .mobile-header{bottom:8px;left:12px;right:12px;width:calc(100% - 24px);border-radius:25px;padding:8px;box-shadow:inset 0 1.5px 1px rgba(255,255,255,.31),0 13px 50px rgba(0,0,0,.5)}
+}
+@media(prefers-reduced-transparency:reduce){.nav-btn.active,.top-search,.icon-btn,.surface-tag,.small-round,.range-pill,.pill-action,.quickbox,.chat-input-wrap,.starter,.tab.active,.btn.secondary,.agent-mark,.chat-mic,.agent-close,.agent-panel,.mobile-header,.fab{background:rgba(58,46,55,.97);-webkit-backdrop-filter:none;backdrop-filter:none}}
+@media(prefers-reduced-motion:reduce){.feature-card,.panel,.note-card,.library-card,.icon-btn,.small-round,.surface-tag,.starter,.btn.secondary{transition:none!important}}
 </style>
 </head>
 <body>
@@ -587,6 +565,28 @@ document.getElementById('chat-input').addEventListener('keydown',e=>{if(e.key===
 document.getElementById('top-search-input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchTerm=e.target.value.trim();filter='all';page('library');}});
 document.getElementById('modal-layer').addEventListener('click',e=>{if(e.target.id==='modal-layer')closeModal()});document.getElementById('agent-layer').addEventListener('click',e=>{if(e.target.id==='agent-layer')closeAgent()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeAgent()}});
 renderAll();hydrateIcons();save();
+</script>
+<script id="lifeos-v4-optical-motion">
+(() => {
+  const glassSelector='.nav-btn.active,.top-search,.icon-btn,.surface-tag,.small-round,.range-pill,.pill-action,.quickbox,.chat-input-wrap,.starter,.tab.active,.btn.secondary,.agent-mark,.chat-mic,.agent-close,.mobile-header,.fab';
+  let current=null, next=null, queued=false;
+  document.addEventListener('pointermove',ev=>{
+    if(ev.pointerType==='touch'||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    const el=ev.target.closest?.(glassSelector);
+    if(!el){if(current){current.style.removeProperty('--gx');current.style.removeProperty('--gy');current=null;}return;}
+    next={el,x:ev.clientX,y:ev.clientY};
+    if(queued)return;
+    queued=true;
+    requestAnimationFrame(()=>{
+      queued=false;if(!next)return;
+      const {el,x,y}=next;
+      if(current&&current!==el){current.style.removeProperty('--gx');current.style.removeProperty('--gy');}
+      current=el;const rect=el.getBoundingClientRect();
+      el.style.setProperty('--gx',Math.max(0,Math.min(100,(x-rect.left)/rect.width*100)).toFixed(1)+'%');
+      el.style.setProperty('--gy',Math.max(0,Math.min(100,(y-rect.top)/rect.height*100)).toFixed(1)+'%');
+    });
+  },{passive:true});
+})();
 </script>
 </body>
 </html>
